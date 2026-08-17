@@ -19,7 +19,7 @@ jobs:
         run: python -m pytest -q
       - name: Run rule-mode evaluation
         working-directory: backend
-        run: python eval/run_evaluation.py --mode rule --output-suffix -rule
+        run: python eval/run_evaluation.py --mode rule --output-suffix=-rule
       - uses: actions/upload-artifact@v4
         with:
           name: eval-report-rule
