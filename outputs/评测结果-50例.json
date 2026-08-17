@@ -1,0 +1,242 @@
+{
+  "generated_at": "2026-08-17T13:04:38.139356+00:00",
+  "case_count": 50,
+  "real_model": true,
+  "model_name": "deepseek-v4-flash",
+  "rule_tier_accuracy": 0.76,
+  "final_tier_accuracy": 0.78,
+  "rule_department_accuracy": 0.82,
+  "final_department_accuracy": 0.82,
+  "rag_recall_top3": 0.92,
+  "latency_ms_p50": 2165.3,
+  "latency_ms_p95": 3235.9,
+  "confusion_matrix": {
+    "red": {
+      "red": 16
+    },
+    "yellow": {
+      "yellow": 8,
+      "red": 9,
+      "green": 1
+    },
+    "green": {
+      "green": 15,
+      "yellow": 1
+    }
+  },
+  "tier_metrics": {
+    "green": {
+      "precision": 0.9375,
+      "recall": 0.9375,
+      "f1": 0.9375
+    },
+    "yellow": {
+      "precision": 0.8889,
+      "recall": 0.4444,
+      "f1": 0.5926
+    },
+    "red": {
+      "precision": 0.64,
+      "recall": 1.0,
+      "f1": 0.7805
+    }
+  },
+  "errors": [
+    {
+      "id": "case_043",
+      "chief_complaint": "月经不调复诊",
+      "expected_tier": "green",
+      "expected_department": "妇产科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "妇产科",
+      "final_department": "妇产科",
+      "rag_hit": false,
+      "latency_ms": 1791.0,
+      "label_note": "妇科常规复诊"
+    },
+    {
+      "id": "case_044",
+      "chief_complaint": "肩颈酸痛 1 个月",
+      "expected_tier": "green",
+      "expected_department": "骨科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "骨科",
+      "final_department": "骨科",
+      "rag_hit": false,
+      "latency_ms": 1755.5,
+      "label_note": "慢性颈肩不适门诊即可"
+    },
+    {
+      "id": "case_047",
+      "chief_complaint": "术后伤口换药",
+      "expected_tier": "green",
+      "expected_department": "外科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "外科",
+      "final_department": "外科",
+      "rag_hit": false,
+      "latency_ms": 2402.4,
+      "label_note": "术后常规换药"
+    },
+    {
+      "id": "case_049",
+      "chief_complaint": "慢性腰疼复诊",
+      "expected_tier": "green",
+      "expected_department": "骨科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "骨科",
+      "final_department": "骨科",
+      "rag_hit": false,
+      "latency_ms": 2262.4,
+      "label_note": "慢性腰痛复诊"
+    },
+    {
+      "id": "case_025",
+      "chief_complaint": "耳痛伴听力下降 2 天",
+      "expected_tier": "yellow",
+      "expected_department": "耳鼻喉科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "耳鼻喉科",
+      "final_department": "耳鼻喉科",
+      "rag_hit": true,
+      "latency_ms": 2163.3,
+      "label_note": "耳部症状需耳鼻喉科评估"
+    },
+    {
+      "id": "case_038",
+      "chief_complaint": "儿童疫苗接种咨询",
+      "expected_tier": "green",
+      "expected_department": "儿科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "儿科",
+      "final_department": "儿科",
+      "rag_hit": true,
+      "latency_ms": 1775.2,
+      "label_note": "常规预防保健"
+    },
+    {
+      "id": "case_018",
+      "chief_complaint": "儿童发热 39℃精神差",
+      "expected_tier": "yellow",
+      "expected_department": "儿科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "儿科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 2405.6,
+      "label_note": "儿童高热伴精神状态改变需尽快就诊"
+    },
+    {
+      "id": "case_019",
+      "chief_complaint": "头晕伴站立不稳 1 天",
+      "expected_tier": "yellow",
+      "expected_department": "神经内科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "神经内科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 3085.0,
+      "label_note": "老年头晕需排查神经系统问题"
+    },
+    {
+      "id": "case_022",
+      "chief_complaint": "反复呕吐伴口渴尿少",
+      "expected_tier": "yellow",
+      "expected_department": "内科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "内科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 1897.3,
+      "label_note": "呕吐伴脱水风险需尽快就诊"
+    },
+    {
+      "id": "case_029",
+      "chief_complaint": "老年跌倒后髋部疼痛",
+      "expected_tier": "yellow",
+      "expected_department": "骨科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "骨科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 6016.7,
+      "label_note": "跌倒后髋部疼痛需排查骨折"
+    },
+    {
+      "id": "case_030",
+      "chief_complaint": "痰中带血 3 天",
+      "expected_tier": "yellow",
+      "expected_department": "内科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "内科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 2644.3,
+      "label_note": "痰中带血需尽快呼吸系统评估"
+    },
+    {
+      "id": "case_031",
+      "chief_complaint": "孕晚期胎动减少",
+      "expected_tier": "yellow",
+      "expected_department": "妇产科",
+      "rule_tier": "green",
+      "final_tier": "red",
+      "rule_department": "妇产科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 1833.2,
+      "label_note": "胎动异常需产科评估"
+    },
+    {
+      "id": "case_032",
+      "chief_complaint": "频繁呕吐伴明显乏力",
+      "expected_tier": "yellow",
+      "expected_department": "内科",
+      "rule_tier": "yellow",
+      "final_tier": "red",
+      "rule_department": "内科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 1797.4,
+      "label_note": "频繁呕吐需评估电解质与脱水"
+    },
+    {
+      "id": "case_033",
+      "chief_complaint": "持续咳嗽 2 周伴胸痛",
+      "expected_tier": "yellow",
+      "expected_department": "内科",
+      "rule_tier": "red",
+      "final_tier": "red",
+      "rule_department": "急诊科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 3235.9,
+      "label_note": "迁延咳嗽伴胸痛需就诊"
+    },
+    {
+      "id": "case_034",
+      "chief_complaint": "剧烈头痛伴呕吐",
+      "expected_tier": "yellow",
+      "expected_department": "神经内科",
+      "rule_tier": "red",
+      "final_tier": "red",
+      "rule_department": "急诊科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 2168.6,
+      "label_note": "剧烈头痛需神经科评估"
+    }
+  ],
+  "error_count": 15
+}

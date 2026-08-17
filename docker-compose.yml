@@ -1,0 +1,41 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: smart_hospital
+      POSTGRES_PASSWORD: smart_hospital
+      POSTGRES_DB: smart_hospital
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smart_hospital -d smart_hospital"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://smart_hospital:smart_hospital@db:5432/smart_hospital
+      SECRET_KEY: ${SECRET_KEY:-docker-dev-secret}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.deepseek.com/anthropic}
+      LLM_MODEL: ${LLM_MODEL:-deepseek-v4-flash}
+      LLM_STYLE: ${LLM_STYLE:-anthropic}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  pg_data:

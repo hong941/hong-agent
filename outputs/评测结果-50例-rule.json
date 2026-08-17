@@ -1,0 +1,245 @@
+{
+  "generated_at": "2026-08-17T13:12:23.133020+00:00",
+  "case_count": 50,
+  "real_model": false,
+  "mode": "rule",
+  "model_name": "rule-only",
+  "rule_tier_accuracy": 0.76,
+  "final_tier_accuracy": 0.76,
+  "rule_department_accuracy": 0.82,
+  "final_department_accuracy": 0.82,
+  "rag_recall_top3": 0.92,
+  "latency_ms_p50": 0.0,
+  "latency_ms_p95": 0.0,
+  "confusion_matrix": {
+    "red": {
+      "red": 9,
+      "yellow": 5,
+      "green": 2
+    },
+    "yellow": {
+      "yellow": 14,
+      "green": 2,
+      "red": 2
+    },
+    "green": {
+      "green": 15,
+      "yellow": 1
+    }
+  },
+  "tier_metrics": {
+    "green": {
+      "precision": 0.7895,
+      "recall": 0.9375,
+      "f1": 0.8571
+    },
+    "yellow": {
+      "precision": 0.7,
+      "recall": 0.7778,
+      "f1": 0.7368
+    },
+    "red": {
+      "precision": 0.8182,
+      "recall": 0.5625,
+      "f1": 0.6667
+    }
+  },
+  "errors": [
+    {
+      "id": "case_043",
+      "chief_complaint": "月经不调复诊",
+      "expected_tier": "green",
+      "expected_department": "妇产科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "妇产科",
+      "final_department": "妇产科",
+      "rag_hit": false,
+      "latency_ms": 0,
+      "label_note": "妇科常规复诊"
+    },
+    {
+      "id": "case_044",
+      "chief_complaint": "肩颈酸痛 1 个月",
+      "expected_tier": "green",
+      "expected_department": "骨科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "骨科",
+      "final_department": "骨科",
+      "rag_hit": false,
+      "latency_ms": 0,
+      "label_note": "慢性颈肩不适门诊即可"
+    },
+    {
+      "id": "case_047",
+      "chief_complaint": "术后伤口换药",
+      "expected_tier": "green",
+      "expected_department": "外科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "外科",
+      "final_department": "外科",
+      "rag_hit": false,
+      "latency_ms": 0,
+      "label_note": "术后常规换药"
+    },
+    {
+      "id": "case_049",
+      "chief_complaint": "慢性腰疼复诊",
+      "expected_tier": "green",
+      "expected_department": "骨科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "骨科",
+      "final_department": "骨科",
+      "rag_hit": false,
+      "latency_ms": 0,
+      "label_note": "慢性腰痛复诊"
+    },
+    {
+      "id": "case_025",
+      "chief_complaint": "耳痛伴听力下降 2 天",
+      "expected_tier": "yellow",
+      "expected_department": "耳鼻喉科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "耳鼻喉科",
+      "final_department": "耳鼻喉科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "耳部症状需耳鼻喉科评估"
+    },
+    {
+      "id": "case_031",
+      "chief_complaint": "孕晚期胎动减少",
+      "expected_tier": "yellow",
+      "expected_department": "妇产科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "妇产科",
+      "final_department": "妇产科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "胎动异常需产科评估"
+    },
+    {
+      "id": "case_038",
+      "chief_complaint": "儿童疫苗接种咨询",
+      "expected_tier": "green",
+      "expected_department": "儿科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "儿科",
+      "final_department": "儿科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "常规预防保健"
+    },
+    {
+      "id": "case_005",
+      "chief_complaint": "头部外伤后明显出血",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "外科",
+      "final_department": "外科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "头部外伤出血需急诊处理"
+    },
+    {
+      "id": "case_010",
+      "chief_complaint": "呕血约 200ml",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "内科",
+      "final_department": "内科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "消化道出血需急诊"
+    },
+    {
+      "id": "case_011",
+      "chief_complaint": "严重喘息不能平卧",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "内科",
+      "final_department": "内科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "哮喘急性发作需急诊"
+    },
+    {
+      "id": "case_012",
+      "chief_complaint": "利器刺伤出血不止",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "green",
+      "final_tier": "green",
+      "rule_department": "外科",
+      "final_department": "外科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "活动性出血需急诊止血"
+    },
+    {
+      "id": "case_013",
+      "chief_complaint": "婴幼儿腹泻伴精神萎靡尿少",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "儿科",
+      "final_department": "儿科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "婴幼儿脱水伴精神差需急诊"
+    },
+    {
+      "id": "case_014",
+      "chief_complaint": "突发视力下降伴视野缺损",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "眼科",
+      "final_department": "眼科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "突发视力障碍需尽快就医"
+    },
+    {
+      "id": "case_015",
+      "chief_complaint": "言语不清伴单侧肢体无力",
+      "expected_tier": "red",
+      "expected_department": "急诊科",
+      "rule_tier": "yellow",
+      "final_tier": "yellow",
+      "rule_department": "神经内科",
+      "final_department": "神经内科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "再次脑血管事件高风险"
+    },
+    {
+      "id": "case_033",
+      "chief_complaint": "持续咳嗽 2 周伴胸痛",
+      "expected_tier": "yellow",
+      "expected_department": "内科",
+      "rule_tier": "red",
+      "final_tier": "red",
+      "rule_department": "急诊科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "迁延咳嗽伴胸痛需就诊"
+    }
+  ],
+  "error_count": 16
+}

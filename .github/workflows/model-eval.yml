@@ -1,0 +1,30 @@
+name: Model Eval
+
+on:
+  workflow_dispatch:
+
+jobs:
+  model-eval:
+    runs-on: ubuntu-latest
+    env:
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      LLM_BASE_URL: ${{ secrets.LLM_BASE_URL || 'https://api.deepseek.com/anthropic' }}
+      LLM_MODEL: ${{ secrets.LLM_MODEL || 'deepseek-v4-flash' }}
+      LLM_STYLE: ${{ secrets.LLM_STYLE || 'anthropic' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install backend dependencies
+        run: pip install -r backend/requirements.txt
+      - name: Run model evaluation
+        working-directory: backend
+        run: python eval/run_evaluation.py --mode model
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-report-model
+          path: |
+            outputs/AI智慧医院-评测报告-第一版.md
+            outputs/评测结果-50例.json
+          if-no-files-found: error
