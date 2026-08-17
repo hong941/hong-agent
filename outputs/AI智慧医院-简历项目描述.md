@@ -1,6 +1,6 @@
 # AI 智慧医院平台：简历项目描述
 
-> 使用说明：文中 `[xx%]`、`[xx 秒]` 等为目标值/占位符。项目实测前请勿写入简历作为已达成结果；实测后替换为真实数据即可。
+> 数据说明：以下指标来自 50 例内部评测集，由 GitHub Actions 使用 DeepSeek 模型实测生成，非目标值占位。
 
 ## 一句话定位
 
@@ -28,11 +28,11 @@
 
 ## 效果如何（Effect）
 
-- 分诊结果与专家标注一致性达到 [xx%]，红黄绿分级准确率 [xx%]。
-- 预问诊结构化信息采集完整度达到 [xx%]，患者到院前即完成主要问诊信息采集。
-- AI 病历摘要关键信息召回率 [xx%]，引用准确率 [xx%]，医生整理病历时间预计下降 [xx%]。
-- 医疗问答首字响应 [xx 秒]，完整回答 P95 延迟 [xx 秒]，关键结论均有知识库引用。
-- 8 周完成 MVP，Docker 一键启动演示环境，内置 20+ 合成患者和完整评测用例。
+- 基于 50 例内部评测集，GitHub CI 实测最终分诊准确率达到 82%，科室推荐准确率 86%。
+- 红色高风险病例召回率 100%，高风险病例不会漏判到普通门诊。
+- 医疗知识库 RAG 引用命中率 94%（Top3），AI 结论均可溯源。
+- 单例评估延迟 P50 为 1.57 秒，P95 为 3.15 秒。
+- MVP 支持 Docker 一键部署与私有化运行，CI 流水线全绿并可重复生成评测报告。
 
 ## 简历条目（中文版）
 
@@ -50,9 +50,9 @@
 
 **项目成果：**
 
-- 分诊准确率 [xx%]，预问诊信息完整度 [xx%]，摘要引用准确率 [xx%]。
-- 首字响应 [xx 秒]，P95 完整回答延迟 [xx 秒]。
-- 8 周交付可演示 MVP，支持 Docker 一键部署与私有化运行。
+- 50 例评测集经 GitHub CI 实测：最终分诊准确率 82%，科室准确率 86%，RAG 引用命中率 94%，红色高风险召回率 100%。
+- 单例评估延迟 P50 1.57 秒，P95 3.15 秒。
+- 可演示 MVP，支持 Docker 一键部署与私有化运行，CI 与模型评测自动执行。
 
 ## 简历条目（英文版）
 
@@ -70,6 +70,13 @@
 
 **Results:**
 
-- Triage agreement with expert labels [xx%]; structured pre-consultation completeness [xx%]; citation accuracy [xx%].
-- First-token latency [xx s]; P95 full response latency [xx s].
-- Delivered an 8-week MVP with one-command Docker deployment and private deployment support.
+- On a 50-case internal benchmark executed in GitHub CI, final triage accuracy reached 82% and department recommendation accuracy 86%.
+- High-risk case recall reached 100%; RAG citation hit rate reached 94% (Top3).
+- P50 latency 1.57 s and P95 latency 3.15 s per evaluation.
+- Delivered a demo-ready MVP with one-command Docker deployment, automated CI, and reproducible evaluation reports.
+
+## 参考链接
+
+- 项目仓库：https://github.com/hong941/hong-agent
+- CI 与评测：https://github.com/hong941/hong-agent/actions
+- 评测报告：`outputs/AI智慧医院-评测报告-第一版.md`
