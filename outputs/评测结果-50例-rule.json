@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T13:12:23.133020+00:00",
+  "generated_at": "2026-08-17T13:28:02.912447+00:00",
   "case_count": 50,
   "real_model": false,
   "mode": "rule",
@@ -8,7 +8,7 @@
   "final_tier_accuracy": 0.76,
   "rule_department_accuracy": 0.82,
   "final_department_accuracy": 0.82,
-  "rag_recall_top3": 0.92,
+  "rag_recall_top3": 0.94,
   "latency_ms_p50": 0.0,
   "latency_ms_p95": 0.0,
   "confusion_matrix": {
@@ -45,19 +45,6 @@
     }
   },
   "errors": [
-    {
-      "id": "case_043",
-      "chief_complaint": "月经不调复诊",
-      "expected_tier": "green",
-      "expected_department": "妇产科",
-      "rule_tier": "green",
-      "final_tier": "green",
-      "rule_department": "妇产科",
-      "final_department": "妇产科",
-      "rag_hit": false,
-      "latency_ms": 0,
-      "label_note": "妇科常规复诊"
-    },
     {
       "id": "case_044",
       "chief_complaint": "肩颈酸痛 1 个月",
@@ -239,7 +226,20 @@
       "rag_hit": true,
       "latency_ms": 0,
       "label_note": "迁延咳嗽伴胸痛需就诊"
+    },
+    {
+      "id": "case_034",
+      "chief_complaint": "剧烈头痛伴呕吐",
+      "expected_tier": "yellow",
+      "expected_department": "神经内科",
+      "rule_tier": "red",
+      "final_tier": "red",
+      "rule_department": "急诊科",
+      "final_department": "急诊科",
+      "rag_hit": true,
+      "latency_ms": 0,
+      "label_note": "剧烈头痛需神经科评估"
     }
   ],
-  "error_count": 16
+  "error_count": 15
 }
