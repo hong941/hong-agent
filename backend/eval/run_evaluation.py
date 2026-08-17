@@ -15,8 +15,10 @@ sys.path.insert(0, str(BACKEND_DIR))
 from app.ai.provider import MockProvider, get_provider  # noqa: E402
 from app.ai.rag import KnowledgeService  # noqa: E402
 from app.ai.triage import evaluate_rule, run_triage  # noqa: E402
-from app.database import SessionLocal  # noqa: E402
+from app.database import Base, SessionLocal, engine  # noqa: E402
 from app.models import Patient, TriageConversation  # noqa: E402
+from app.seed import seed  # noqa: E402
+from app.services.embeddings import ensure_knowledge_embeddings  # noqa: E402
 
 TIER_ORDER = ["green", "yellow", "red"]
 
@@ -90,6 +92,12 @@ def main() -> None:
         provider = get_provider()
         real_model = not isinstance(provider, MockProvider)
         model_name = provider.model if real_model else "local-rule"
+
+    Base.metadata.create_all(bind=engine)
+    with SessionLocal() as bootstrap_db:
+        seed(bootstrap_db)
+        ensure_knowledge_embeddings(bootstrap_db)
+
     db = SessionLocal()
     rows = []
     latencies = []
