@@ -46,6 +46,15 @@ pnpm dev
 
 访问 http://localhost:5173。
 
+### 一键 Demo 模式
+
+```bash
+pnpm --dir frontend build
+.\start_demo.ps1
+```
+
+打开 http://127.0.0.1:8000 即可演示完整流程，前端已由后端静态托管，不需要单独启动 Vite。
+
 ## 演示账号
 
 | 角色 | 账号 | 密码 |

@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from .config import get_settings
 from .database import Base, SessionLocal, engine, ensure_sqlite_schema
@@ -11,6 +13,7 @@ from .services.embeddings import ensure_knowledge_embeddings
 from .services.pgvector_store import ensure_pgvector
 
 settings = get_settings()
+FRONTEND_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
 
 
 @asynccontextmanager
@@ -50,3 +53,11 @@ app.include_router(admin.router)
 @app.get("/api/health")
 def health():
     return {"status": "ok", "app": settings.app_name}
+
+
+if FRONTEND_DIST.exists():
+    app.mount(
+        "/",
+        StaticFiles(directory=FRONTEND_DIST, html=True),
+        name="frontend",
+    )

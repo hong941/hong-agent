@@ -67,6 +67,15 @@ docker compose up --build
 
 服务会自动启动 pgvector 数据库、后端和前端。需要真实模型 Key 时，复制根目录 `.env.example` 为 `.env` 并填写 `LLM_API_KEY`。
 
+### 4. 一键 Demo 模式（推荐演示）
+
+```bash
+pnpm --dir frontend build
+.\start_demo.ps1
+```
+
+打开 http://127.0.0.1:8000 即可体验完整流程。Demo 模式将前端构建产物直接托管在后端服务中，不需要单独启动 Vite。
+
 ## 演示账号
 
 | 角色 | 账号 | 密码 |
